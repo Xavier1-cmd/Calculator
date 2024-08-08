@@ -11,82 +11,89 @@ namespace Calculator
             InitializeComponent();
         }
 
-        private void button_click(object sender, EventArgs e)
+        private void Button_click(object sender, EventArgs e)
         {
-            if ((textBox_Result.Text == "0") || (isOperationPerformed))
+            Button buttonSender = (Button)sender;
+
+            if ((textBoxResult.Text == "0") && (buttonSender.Text == "."))
             {
-                textBox_Result.Clear();
+                textBoxResult.Text += buttonSender.Text;
+            }
+
+            if ((textBoxResult.Text == "0") || (isOperationPerformed))
+            {
+                textBoxResult.Clear();
             }
 
             isOperationPerformed = false;
-            Button button = (Button)sender;
 
-            if (button.Text == ".")
+            if (!(buttonSender.Text == "."))
             {
-                if (!textBox_Result.Text.Contains('.'))
-                {
-                    textBox_Result.Text += button.Text;
-                }
-            } else
+                //如果不是輸入"."，則正常輸出畫面
+                textBoxResult.Text += buttonSender.Text;
+            }
+            else if (!textBoxResult.Text.Contains('.'))
             {
-                textBox_Result.Text += button.Text;
+                //如果輸入的是"."，則判斷是否已包含"."，若沒有則正常輸出
+                textBoxResult.Text += buttonSender.Text;
             }
         }
 
-        private void operator_click(object sender, EventArgs e)
+        private void Operator_click(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
+            Button buttonSender = (Button)sender;
 
             if (resultValue != 0)
             {
-                button19.PerformClick();
-                operationPerformed = button.Text;
+                buttonEqual.PerformClick();
+
+                operationPerformed = buttonSender.Text;
                 labelCurrentOperation.Text = resultValue + " " + operationPerformed;
                 isOperationPerformed = true;
-            } else
+            }
+            else
             {
-                operationPerformed = button.Text;
-                resultValue = Double.Parse(textBox_Result.Text);
+                resultValue = Double.Parse(textBoxResult.Text);
+
+                operationPerformed = buttonSender.Text;
                 labelCurrentOperation.Text = resultValue + " " + operationPerformed;
                 isOperationPerformed = true;
             }
         }
 
-        private void buttonCE(object sender, EventArgs e)
+        private void ButtonCE(object sender, EventArgs e)
         {
-            textBox_Result.Text = "0";
+            //只清除當前輸入的值
+            textBoxResult.Text = "0";
         }
 
-        private void buttonC(object sender, EventArgs e)
+        private void ButtonC(object sender, EventArgs e)
         {
-            textBox_Result.Text = "0";
+            //全部清空
+            textBoxResult.Text = "0";
             resultValue = 0;
         }
 
-        private void buttonEqual(object sender, EventArgs e)
-        {
-        }
-
-        private void button19_Click(object sender, EventArgs e)
+        private void ButtonEqual_Click(object sender, EventArgs e)
         {
             switch (operationPerformed)
             {
                 case "+":
-                    textBox_Result.Text = (resultValue + Double.Parse(textBox_Result.Text)).ToString();
+                    textBoxResult.Text = (resultValue + Double.Parse(textBoxResult.Text)).ToString();
                     break;
                 case "-":
-                    textBox_Result.Text = (resultValue - Double.Parse(textBox_Result.Text)).ToString();
+                    textBoxResult.Text = (resultValue - Double.Parse(textBoxResult.Text)).ToString();
                     break;
                 case "*":
-                    textBox_Result.Text = (resultValue * Double.Parse(textBox_Result.Text)).ToString();
+                    textBoxResult.Text = (resultValue * Double.Parse(textBoxResult.Text)).ToString();
                     break;
                 case "/":
-                    textBox_Result.Text = (resultValue / Double.Parse(textBox_Result.Text)).ToString();
+                    textBoxResult.Text = (resultValue / Double.Parse(textBoxResult.Text)).ToString();
                     break;
                 default:
                     break;
             }
-            resultValue = Double.Parse(textBox_Result.Text);
+            resultValue = Double.Parse(textBoxResult.Text);
             labelCurrentOperation.Text = "";
         }
     }

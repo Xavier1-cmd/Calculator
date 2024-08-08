@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{11D29F23-5BEB-4361-9C13-3D33F6A84C27}|Calculator\\Calculator.csproj|C:\\Users\\User\\source\\repos\\Calculator\\calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{11D29F23-5BEB-4361-9C13-3D33F6A84C27}|Calculator\\Calculator.csproj|solutionrelative:calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D29F23-5BEB-4361-9C13-3D33F6A84C27}|Calculator\\Calculator.csproj|c:\\users\\user\\source\\repos\\calculator\\calculator\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D29F23-5BEB-4361-9C13-3D33F6A84C27}|Calculator\\Calculator.csproj|solutionrelative:calculator\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,15 +30,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Calculator\\Calculator\\Form1.cs",
-              "RelativeDocumentMoniker": "Calculator\\Form1.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Calculator\\Calculator\\Form1.cs [Design]",
-              "RelativeToolTip": "Calculator\\Form1.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Calculator\\Calculator\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Calculator\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Calculator\\Calculator\\Form1.Designer.cs",
+              "RelativeToolTip": "Calculator\\Form1.Designer.cs",
+              "ViewState": "AQIAADQBAAAAAAAAAAD4v0UBAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:55:28.365Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-08T05:36:58.939Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -44,10 +49,22 @@
               "RelativeDocumentMoniker": "Calculator\\Form1.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\Calculator\\Calculator\\Form1.cs",
               "RelativeToolTip": "Calculator\\Form1.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAswDMAAAANAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowEcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-07T02:20:57.285Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Calculator\\Calculator\\Form1.cs",
+              "RelativeDocumentMoniker": "Calculator\\Form1.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Calculator\\Calculator\\Form1.cs [Design]",
+              "RelativeToolTip": "Calculator\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T01:55:28.365Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
