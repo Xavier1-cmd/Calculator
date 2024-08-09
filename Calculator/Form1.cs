@@ -2,8 +2,8 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
-        Double resultValue = 0;
-        String operationPerformed = "";
+        double resultValue = 0;
+        string operationPerformed = string.Empty;
         bool isOperationPerformed = false;
 
         public Form1()
@@ -13,50 +13,51 @@ namespace Calculator
 
         private void Button_click(object sender, EventArgs e)
         {
-            Button buttonSender = (Button)sender;
 
-            if ((textBoxResult.Text == "0") && (buttonSender.Text == "."))
+            if (this.textBoxResult.Text.Equals("0") && ((Button)sender).Text.Equals("."))
             {
-                textBoxResult.Text += buttonSender.Text;
+                this.textBoxResult.Text += ((Button)sender).Text;
             }
 
-            if ((textBoxResult.Text == "0") || (isOperationPerformed))
+            if (this.textBoxResult.Text.Equals("0") || isOperationPerformed)
             {
-                textBoxResult.Clear();
+                this.textBoxResult.Clear();
             }
 
+            //重置前一次計算中的運算子狀態
             isOperationPerformed = false;
 
-            if (!(buttonSender.Text == "."))
+            if (!((Button)sender).Text.Equals("."))
             {
                 //如果不是輸入"."，則正常輸出畫面
-                textBoxResult.Text += buttonSender.Text;
+                this.textBoxResult.Text += ((Button)sender).Text;
             }
-            else if (!textBoxResult.Text.Contains('.'))
+            else if (!this.textBoxResult.Text.Contains('.'))
             {
                 //如果輸入的是"."，則判斷是否已包含"."，若沒有則正常輸出
-                textBoxResult.Text += buttonSender.Text;
+                this.textBoxResult.Text += ((Button)sender).Text;
             }
         }
 
         private void Operator_click(object sender, EventArgs e)
         {
-            Button buttonSender = (Button)sender;
 
             if (resultValue != 0)
             {
+                //如果resultValue的值不為"0"，這時再次輸入運算子，會將當前顯示的數字直接與resultValue做運算
                 buttonEqual.PerformClick();
 
-                operationPerformed = buttonSender.Text;
-                labelCurrentOperation.Text = resultValue + " " + operationPerformed;
+                operationPerformed = ((Button)sender).Text;
+                this.labelCurrentOperation.Text = $"{resultValue} {operationPerformed}";
                 isOperationPerformed = true;
             }
             else
             {
-                resultValue = Double.Parse(textBoxResult.Text);
+                //如果resultValue的值為"0"，則將當前顯示的數字存入resultValue
+                resultValue = double.Parse(this.textBoxResult.Text);
 
-                operationPerformed = buttonSender.Text;
-                labelCurrentOperation.Text = resultValue + " " + operationPerformed;
+                operationPerformed = ((Button)sender).Text;
+                this.labelCurrentOperation.Text = $"{resultValue} {operationPerformed}";
                 isOperationPerformed = true;
             }
         }
@@ -64,13 +65,13 @@ namespace Calculator
         private void ButtonCE(object sender, EventArgs e)
         {
             //只清除當前輸入的值
-            textBoxResult.Text = "0";
+            this.textBoxResult.Text = "0";
         }
 
         private void ButtonC(object sender, EventArgs e)
         {
             //全部清空
-            textBoxResult.Text = "0";
+            this.textBoxResult.Text = "0";
             resultValue = 0;
         }
 
@@ -79,22 +80,25 @@ namespace Calculator
             switch (operationPerformed)
             {
                 case "+":
-                    textBoxResult.Text = (resultValue + Double.Parse(textBoxResult.Text)).ToString();
+                    this.textBoxResult.Text = (resultValue + double.Parse(this.textBoxResult.Text)).ToString();
                     break;
                 case "-":
-                    textBoxResult.Text = (resultValue - Double.Parse(textBoxResult.Text)).ToString();
+                    this.textBoxResult.Text = (resultValue - double.Parse(this.textBoxResult.Text)).ToString();
                     break;
                 case "*":
-                    textBoxResult.Text = (resultValue * Double.Parse(textBoxResult.Text)).ToString();
+                    this.textBoxResult.Text = (resultValue * double.Parse(this.textBoxResult.Text)).ToString();
                     break;
                 case "/":
-                    textBoxResult.Text = (resultValue / Double.Parse(textBoxResult.Text)).ToString();
+                    this.textBoxResult.Text = (resultValue / double.Parse(this.textBoxResult.Text)).ToString();
                     break;
                 default:
                     break;
             }
-            resultValue = Double.Parse(textBoxResult.Text);
-            labelCurrentOperation.Text = "";
+
+            //將運算後的數字，轉換後存入resultValue
+            resultValue = double.Parse(this.textBoxResult.Text);
+            //清空左上方的暫存顯示
+            this.labelCurrentOperation.Text = string.Empty;
         }
     }
 }
