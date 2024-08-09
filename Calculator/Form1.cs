@@ -21,11 +21,13 @@ namespace Calculator
 
             if (this.textBoxResult.Text.Equals("0") || isOperationPerformed)
             {
+                //這邊進行判斷，如果輸入數字時，顯示視窗為"0"，則在清除"0"之後，顯示輸入的數字
+                //又或者isOperationPerformed(運算符是否有執行過)為"true"時，執行清除
                 this.textBoxResult.Clear();
             }
 
-            //重置前一次計算中的運算子狀態
-            isOperationPerformed = false;
+            //重置前一次計算中所記錄的運算子狀態，初始值為"false"
+            this.isOperationPerformed = false;
 
             if (!((Button)sender).Text.Equals("."))
             {
